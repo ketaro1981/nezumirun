@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>NEZUMY RUN</title>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<SCRIPT language="JavaScript">
+<!--
+$(function(){
+	var sW,s,ss;
+var num = 0;
+	//sW = window.innerWidth;
+        sW = 340;
+	s = sW / num;
+var speedrank = [3425,4598,4801,5200];
+var test_array=random(speedrank, 4);
+var sprank =[];
+$('.logoready').hide();
+$('#mouctn').addClass('moustart');
+$('.moustart').text('Game Start');
+$('.moustart').one('tap', function(){
+$('#mouctn').removeClass('moustart');
+$('.logoready').show();
+$('#mouctn').text('はしる');
+setTimeout(function(){
+
+  $('.logoready').hide();
+  $('.you').hide().animate({
+  opacity: 0,
+  fontSize: "3em",
+  }, 1000);
+
+  $('#logo').show().animate({
+  opacity: 0,
+  fontSize: "3em",
+  }, 1000);
+//my mouse
+$('#mouctn').on('tap', function(){
+
+$(this).data("click", ++num);
+    var click = $(this).data("click");
+var p = $( ".mou" );
+var position = p.offset();
+if(num<10){
+$(".mou").animate({right:"+=34"});
+}
+
+if(position.left<70){
+
+clearInterval(timer);
+}
+    return false;
+ });
+
+//Goal
+  $('.goalline').animate(
+                    {'right':'-60px'},
+                    {duration: 3000}
+);
+
+//counter
+var cnum =0;
+var timer = setInterval(function(){
+  $('.timecountup').html(cnum);
+  if(cnum<600){
+var mprank = mouprank(cnum);
+  cnum++;
+  }
+},10);
+ta=test_array;
+i =1;
+rpn = 1;
+for (var ii in ta) {
+
+var taii = ta[ii]; 
+var rankview =speedrank.indexOf(taii);
+
+var rankview=parseInt(rankview)+parseInt(rpn);
+$('.mou'+i).animate({
+    'right': sW-(sW*0.07) +'px'
+},{
+    'duration': taii
+});
+	$('.moup'+i).text(taii+'位').hide();
+
+$(".moup"+i).delay(taii).queue(function(){
+     $(this).show();
+ });
+	
+i++;
+}
+
+
+function mouprank(i) {
+setTimeout(function(){
+var ras=parseInt(i);
+	$('.moup5').text((i*10)+340+1000+'位');
+},1000);
+
+}
+
+
+
+$('#restart').on('tap', function(){
+location.reload();
+    return false;
+ });
+}, 2000);
+
+});
+});
+function random(array, num) {
+  var a = array;
+  var t = [];
+  var r = [];
+  var l = a.length;
+  var n = num < l ? num : l;
+  while (n-- > 0) {
+    var i = Math.random() * l | 0;
+    r[n] = t[i] || a[i];
+    --l;
+    t[i] = t[l] || a[l];
+  }
+  return r;
+}
+//以下タグ置き場
+/*
+for (var i = 0; i <= speedrank.length; i++) {
+//var speedrandrank = speedrank[Math.floor(Math.random() * speedrank.length)];
+
+$('.mou'+i).animate({
+    'right': sW-(sW*0.07) +'px'
+},{
+    'duration': 5120
+});
+
+}
+
+
+$('.mou4').animate({
+    'right': sW-(sW*0.07)+'px'
+},{
+    'duration': 6200
+});
+
+
+  $('.goalline').animate(
+                    {'right':'-60px'},
+                    {duration: 3000}
+);
+
+var cnum =0;
+var timer = setInterval(function(){
+$('.timecountup').html(cnum);
+if(cnum<400){
+cnum++;
+}
+},10);
+
+$('#mouctn').on('tap', function(){
+
+$(this).data("click", ++num);
+    var click = $(this).data("click");
+var p = $( ".mou" );
+var position = p.offset();
+if(num<10){
+$(".mou").animate({right:"+=35"});
+}
+
+if(position.left<70){
+clearInterval(timer);
+}
+    return false;
+ });
+
+
+
+  $(".mou").css({right:0});
+$( ".mouposi" ).html( "left: " + position.left + ", top: " + moup + ", s: " + num);
+});
+
+setTimeout(function(){
+     $('.lane2nd .goalline').text("2位");
+},speedrank[1]);
+setTimeout(function(){
+     $('.lane3rd .goalline').text("5位");
+},4700);
+setTimeout(function(){
+     $('.lane4th .goalline').text("2位");
+},4100);
+setTimeout(function(){
+     $('.lane5th .goalline').text("4位");
+},4500);
+
+function random(array, num) {
+  var a = array;
+  var t = [];
+  var r = [];
+  var l = a.length;
+  var n = num < l ? num : l;
+  while (n-- > 0) {
+    var i = Math.random() * l | 0;
+    r[n] = t[i] || a[i];
+    --l;
+    t[i] = t[l] || a[l];
+  }
+  return r;
+}
+*/
+//-->
+</SCRIPT>
+<meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+
+<style type="text/css">
+	body{ margin:0;padding:0;text-align:center;}
+	.contents{text-align: right;background:#090;width:375px;height:380px;}
+	.mouse{position:relative; top:0px; right:0px;}
+	.lane{border-bottom:3px solid #fff;margin-bottom:5px;}
+	.track{background:#c90;border-bottom:3px solid #fff;margin-bottom:5px;}
+	.goalline{position:relative; font-size:140%;color:#fff; border-left:3px solid #fff;margin-left:5px;display:block;width:50px;height:60px;float:left;right:120px;}
+	#logo{display:none;
+		left:120px;top:80px;color:#fff;font-size:200%;
+	position: absolute;}
+	.logoready{
+		left:120px;top:100px;color:#fff;font-size:200%;
+	position: absolute;}
+	.you{color:#fff;font-size:160%;font-family: 'Baloo Chettan', cursive;}
+	#mouctn{width:90%;text-align: center;font-size:200%;}
+	.laptime{position:fixed; top:0px; left:0px;color:#fff;font-family: 'Baloo Chettan', cursive;}
+        .mouposix{text-align:center;}
+#restart{
+ text-align:center;
+    width: 100%;
+    height: 100%;
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background-color: #000;
+	filter:alpha(opacity=70);
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<div class="contents">
+<div class="laptime">　NEZUMY RUN　　　　TIME:<span class="timecountup">0</span></div>
+<span class="logoready">Ready</span><div id="logo">Goooo</div>
+<div class="track">　</div>
+<div class="lane lane1st"><div class="goalline"><span class="moup1">　</span></div><IMG src="mouse1.gif" name="img" class="mouse mou1"><BR></div>
+<div class="lane lane2nd"><div class="goalline"><span class="moup2">　</span></div><IMG src="mouse1.gif" name="img" class="mouse mou2"><BR></div>
+<div class="lane lane3rd"><div class="goalline"><span class="moup5">　</span></div><span class="mouse you">YOU</span><IMG src="nezumi.png" name="img" class="mouse mou"><BR></div>
+<div class="lane lane4th"><div class="goalline"><span class="moup3">　</span></div><IMG src="mouse1.gif" name="img" class="mouse mou3"><BR></div>
+<div class="lane lane5th"><div class="goalline"><span class="moup4">　</span></div><IMG src="mouse1.gif" name="img" class="mouse mou4"><BR></div><br>
+<div class="main"><p style="font-size:90%;">ReeadyGo！ではしるボタンを連打してください。</p>
+<p class="mouposix"><button id="mouctn">はしる</button></p>
+<div class="mouposi"></div>
+
+
+<div id="overlay">
+
+<div id="restart">もう一度</div>
+
+</div>
+
+</div>
+</body>
+</html>
