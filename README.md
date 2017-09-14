@@ -15,5 +15,5 @@ It is a simple game using Jquery. Please actively develop additional development
 
 3)Let's aim for the victory
 
-##Demo Site
-[https://ketaro1981.github.io/nezumirun/game.html]
+## Demo Site
+https://ketaro1981.github.io/nezumirun/game.html
