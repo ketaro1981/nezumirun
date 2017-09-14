@@ -9,8 +9,11 @@ It is a simple game using Jquery. Please actively develop additional development
 
 ## How to play.
 
-1)スタートボタンを押す
+1)push Start button
 
-2)Ready goでボタンを連打
+2)Ready go and Button repeatedly.
 
-3)１位を目指しましょう。
+3)Let's aim for the victory
+
+##Demo Site
+[https://ketaro1981.github.io/nezumirun/game.html]
